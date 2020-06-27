@@ -71,6 +71,19 @@ events. Current button ids, arabic and roman numbers serve as arguments for even
        align-items: center;
        justify-content: center;   
       }
+
+    /* Mobile phones */
+    @media screen and (max-width: 767px){
+       .flex-container {
+          transform: scale(0.6);
+       }
+    }
+    /* Tablets and iPads */
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+       .flex-container {
+          transform: scale(0.8);
+       }
+    }
     
     .row1, .row2, .row3 {
        display: flex;
