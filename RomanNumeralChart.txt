@@ -1,0 +1,120 @@
+<!-- 
+The code for the interactive Roman numeral chart is designed and written to be embedded into Ghost editor. 
+Given the fact that Ghost editor HTML embed feature is not a full scale code editor, the given code is not 
+presented as separate html, css, js files. Rather it is compressed as single HTML structure within a with 
+<style> and <script> segments added for styling and functionality. The code is ready to be copied and 
+embedded into any article written with Ghost editor. The necessary changes may be done per user's 
+tastes and/or requirements.
+-->
+
+<!-- HTML utilizes Flexbox. Container is composed of buttons as basic 
+elements. Buttons are wired to functions that fire on mouseover and mouseout
+events. Current button ids, arabic and roman numbers serve as arguments for event listener functions. -->
+<div class='flex-container'>
+    
+	<div class='row1'>
+    	<button class='item' id='1' onmouseover='handleMouseOver("1")' onmouseout='handleMouseOut("1", "I")'>I</button>
+        <button class='item' id='2' onmouseover='handleMouseOver("2")' onmouseout='handleMouseOut("2", "II")'>II</button>
+        <button class='item' id='3' onmouseover='handleMouseOver("3")' onmouseout='handleMouseOut("3", "III")'>III</button>
+        <button class='item' id='4' onmouseover='handleMouseOver("4")' onmouseout='handleMouseOut("4", "IV")'>IV</button>
+        <button class='item' id='5' onmouseover='handleMouseOver("5")' onmouseout='handleMouseOut("5", "V")'>V</button>
+        <button class='item' id='6' onmouseover='handleMouseOver("6")' onmouseout='handleMouseOut("6", "VI")'>VI</button>
+        <button class='item' id='7' onmouseover='handleMouseOver("7")' onmouseout='handleMouseOut("7", "VII")'>VII</button>
+        <button class='item' id='8' onmouseover='handleMouseOver("8")' onmouseout='handleMouseOut("8", "VIII")'>VIII</button>
+        <button class='item' id='9' onmouseover='handleMouseOver("9")' onmouseout='handleMouseOut("9", "IX")'>IX</button>
+    </div>
+    <div class='row2'>
+    	<button class='item' id='10' onmouseover='handleMouseOver("10")' onmouseout='handleMouseOut("10", "X")'>X</button>
+        <button class='item' id='20' onmouseover='handleMouseOver("20")' onmouseout='handleMouseOut("20", "XX")'>XX</button>
+        <button class='item' id='30' onmouseover='handleMouseOver("30")' onmouseout='handleMouseOut("30", "XXX")'>XXX</button>
+        <button class='item' id='40' onmouseover='handleMouseOver("40")' onmouseout='handleMouseOut("40", "XL")'>XL</button>
+        <button class='item' id='50' onmouseover='handleMouseOver("50")' onmouseout='handleMouseOut("50", "L")'>L</button>
+        <button class='item' id='60' onmouseover='handleMouseOver("60")' onmouseout='handleMouseOut("60", "LX")'>LX</button>
+        <button class='item' id='70' onmouseover='handleMouseOver("70")' onmouseout='handleMouseOut("70", "LXX")'>LXX</button>
+        <button class='item' id='80' onmouseover='handleMouseOver("80")' onmouseout='handleMouseOut("80", "LXXX")'>LXXX</button>
+        <button class='item' id='90' onmouseover='handleMouseOver("90")' onmouseout='handleMouseOut("90", "XC")'>XC</button>
+    </div>
+    <div class='row3'>
+    	<button class='item' id='100' onmouseover='handleMouseOver("100")' onmouseout='handleMouseOut("100", "C")'>C</button>
+        <button class='item' id='200' onmouseover='handleMouseOver("200")' onmouseout='handleMouseOut("200", "CC")'>CC</button>
+        <button class='item' id='300' onmouseover='handleMouseOver("300")' onmouseout='handleMouseOut("300", "CCC")'>CCC</button>
+        <button class='item' id='400' onmouseover='handleMouseOver("400")' onmouseout='handleMouseOut("400", "CD")'>CD</button>
+        <button class='item' id='500' onmouseover='handleMouseOver("500")' onmouseout='handleMouseOut("500", "D")'>D</button>
+        <button class='item' id='600' onmouseover='handleMouseOver("600")' onmouseout='handleMouseOut("600", "DC")'>DC</button>
+        <button class='item' id='700' onmouseover='handleMouseOver("700")' onmouseout='handleMouseOut("700", "DCC")'>DCC</button>
+        <button class='item' id='800' onmouseover='handleMouseOver("800")' onmouseout='handleMouseOut("800", "DCCC")'>DCCC</button>
+        <button class='item' id='900' onmouseover='handleMouseOver("900")' onmouseout='handleMouseOut("900", "CM")'>CM</button>
+    </div>
+    <div class='row4'>
+    	<button class='item special' id='1000' onmouseover='handleMouseOver("1000")' onmouseout='handleMouseOut("1000", "M")'>M</button>
+        <button class='item special' id='5000' onmouseover='handleMouseOver("5000")' onmouseout='handleMouseOut("5000", "V&#773;")'>V&#773;</button>
+        <button class='item special' id='10000' onmouseover='handleMouseOver("10000")' onmouseout='handleMouseOut("10000", "X&#773;")'>X&#773;</button>
+        <button class='item special' id='50000' onmouseover='handleMouseOver("50000")' onmouseout='handleMouseOut("50000", "L&#773;")'>L&#773;</button>
+        <button class='item special' id='100000' onmouseover='handleMouseOver("100000")' onmouseout='handleMouseOut("100000", "C&#773;")'>C&#773;</button>
+        <button class='item special' id='500000' onmouseover='handleMouseOver("500000")' onmouseout='handleMouseOut("500000", "D&#773;")'>D&#773;</button>
+        <button class='item special' id='1000000' onmouseover='handleMouseOver("1000000")' onmouseout='handleMouseOut("1000000", "M&#773;")'>M&#773;</button>
+    </div>
+</div>
+
+
+<!-- CSS  -->
+
+<style>
+    .flex-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;    
+    margin: 0 auto; 
+    align-items: center;
+    justify-content: center;   
+      
+    }
+    .row1, .row2, .row3 {
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: space-between;    
+    }
+    .row4 {
+    display: flex;
+    flex-direction: row nowrap;  
+    align-items: center;
+    justify-content: space-evenly;     
+    }
+    .item {
+    margin: 0.2rem 0.2rem;
+    width: 9rem;
+    height: 9rem;  
+    background-color: #3F51B5; 
+    color: white;
+    font-weight: 600;  
+    border-radius: 0.2rem;
+    box-shadow: 0 0 1rem 0.25rem; 
+    transition-duration: 0.2s;
+   }
+    .special {
+    margin: 0.2rem 0.3rem;    
+    width: 11.5rem;
+    height: 9rem;    
+    }
+
+</style>
+
+<!-- JavaScript consists of two functions. One is called on mouseover event, another on mouseout event. The arguments they take determine which node is currently active and change its appearance/content accordingly. -->
+<script>
+ 
+function handleMouseOver(arabic) {
+    let currentButton = document.getElementById(arabic)
+ 	currentButton.style.transform = 'scale(1.3)'
+    currentButton.style.zIndex = '9'
+    currentButton.textContent = arabic 
+} 
+ 
+function handleMouseOut(id, roman) {
+    let currentButton = document.getElementById(id) 
+    currentButton.style.transform = 'scale(1)'
+    currentButton.style.zIndex = '0'
+    currentButton.textContent = roman 
+ }   
+</script>
